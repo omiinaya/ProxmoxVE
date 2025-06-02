@@ -18,7 +18,7 @@ KASM_VERSION=$(curl -fsSL 'https://www.kasmweb.com/downloads' | grep -o 'https:/
 curl -fsSL -o "/opt/kasm_release_${KASM_VERSION}.tar.gz" "https://kasm-static-content.s3.amazonaws.com/kasm_release_${KASM_VERSION}.tar.gz"
 tar -xf "/opt/kasm_release_${KASM_VERSION}.tar.gz" -C /opt
 chmod +x "/opt/kasm_release_${KASM_VERSION}/install.sh"
-printf 'y\ny\ny\n4\n' | bash /opt/kasm_release_${KASM_VERSION}/install.sh
+printf 'y\ny\ny\n4\n' | bash "/opt/kasm_release_${KASM_VERSION}/install.sh"
 sed -n '/Kasm UI Login Credentials/,$p' ~/kasm-install.output >~/kasm.creds
 msg_ok "Installed Kasm Workspaces"
 
@@ -26,7 +26,7 @@ motd_ssh
 customize
 
 msg_info "Cleaning up"
-$STD rm -f /opt/kasm_release_${KASM_VERSION}.tar.gz
+$STD rm -f "/opt/kasm_release_${KASM_VERSION}.tar.gz"
 $STD apt-get -y autoremove
 $STD apt-get -y autoclean
 msg_ok "Cleaned"
