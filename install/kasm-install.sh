@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-# Copyright (c) 2021-2025 community-scripts ORG
+# Copyright (c) 2021-2025 omiinaya ORG
 # Author: Omar Minaya
-# License: MIT | https://github.com/community-scripts/ProxmoxVE/raw/main/LICENSE
+# License: MIT | https://github.com/omiinaya/ProxmoxVE/raw/main/LICENSE
 # Source: https://www.kasmweb.com/docs/latest/index.html
 
 source /dev/stdin <<<"$FUNCTIONS_FILE_PATH"
@@ -16,8 +16,7 @@ update_os
 msg_info "Installing Kasm Workspaces"
 KASM_VERSION=$(curl -fsSL 'https://www.kasmweb.com/downloads' | grep -o 'https://kasm-static-content.s3.amazonaws.com/kasm_release_[^"]*\.tar\.gz' | head -n 1 | sed -E 's/.*release_(.*)\.tar\.gz/\1/')
 curl -fsSL -o "/opt/kasm_release_${KASM_VERSION}.tar.gz" "https://kasm-static-content.s3.amazonaws.com/kasm_release_${KASM_VERSION}.tar.gz"
-cd /opt
-tar -xf "kasm_release_${KASM_VERSION}.tar.gz"
+tar -xf "/opt/kasm_release_${KASM_VERSION}.tar.gz"
 chmod +x /opt/kasm_release/install.sh
 printf 'y\ny\ny\n4\n' | bash /opt/kasm_release/install.sh | tee ~/kasm-install.output
 sed -n '/Kasm UI Login Credentials/,$p' ~/kasm-install.output >~/kasm.creds

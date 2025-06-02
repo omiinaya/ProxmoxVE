@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-source <(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/misc/build.func)
-# Copyright (c) 2021-2025 community-scripts ORG
+source <(curl -fsSL https://raw.githubusercontent.com/omiinaya/ProxmoxVE/testing/misc/build.func)
+# Copyright (c) 2021-2025 omiinaya ORG
 # Author: bvdberg01
-# License: MIT | https://github.com/community-scripts/ProxmoxVE/raw/main/LICENSE
+# License: MIT | https://github.com/omiinaya/ProxmoxVE/raw/main/LICENSE
 # Source: https://netboxlabs.com/
 
 APP="NetBox"
