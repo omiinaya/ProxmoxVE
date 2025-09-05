@@ -1,7 +1,7 @@
 <div align="center">
   <p align="center">
     <a href="#">
-      <img src="https://raw.githubusercontent.com/omiinaya/ProxmoxVE/refs/heads/frigate-fix/misc/images/logo-81x112.png" height="100px" />
+      <img src="https://raw.githubusercontent.com/omiinaya/ProxmoxVE/refs/heads/frigate-fix-test/misc/images/logo-81x112.png" height="100px" />
     </a>
   </p>
 </div>
