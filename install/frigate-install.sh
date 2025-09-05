@@ -53,6 +53,11 @@ $STD pip3 wheel --wheel-dir=/wheels -r /opt/frigate/docker/main/requirements-whe
 cp -a /opt/frigate/docker/main/rootfs/. /
 export TARGETARCH="amd64"
 echo 'libc6 libraries/restart-without-asking boolean true' | debconf-set-selections
+
+# Patch the install_deps.sh script to use python3 instead of python3.9
+sed -i 's/python3\.9/python3/g' /opt/frigate/docker/main/install_deps.sh
+sed -i 's/apt-get -qq install --no-install-recommends -y apt-transport-https gnupg wget procps vainfo unzip locales tzdata libxml2 xz-utils python3.9 python3-pip curl jq nethogs/apt-get -qq install --no-install-recommends -y apt-transport-https gnupg wget procps vainfo unzip locales tzdata libxml2 xz-utils python3 python3-pip curl jq nethogs/g' /opt/frigate/docker/main/install_deps.sh
+
 $STD /opt/frigate/docker/main/install_deps.sh
 $STD apt update
 $STD ln -svf /usr/lib/btbn-ffmpeg/bin/ffmpeg /usr/local/bin/ffmpeg
